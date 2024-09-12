@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1we1ukktow30"]
+
+[ext_resource type="VideoStream" path="res://Assets/Addons/OUTRO.ogv" id="1_u53vf"]
+
+[sub_resource type="GDScript" id="GDScript_x8uet"]
+script/source = "class_name OutroPlayer extends CanvasLayer
+
+var next_scene : PackedScene = preload(\"res://General_Nodes/feedback_user.tscn\")
+
+func _on_video_stream_player_finished():
+	SceneTransition.FadeOut()
+	await get_tree().process_frame
+	get_tree().change_scene_to_packed(next_scene)
+	SceneTransition.FadeIn()
+"
+
+[node name="OutroPlayer" type="CanvasLayer"]
+layer = 3
+script = SubResource("GDScript_x8uet")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_u53vf")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="Control/VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

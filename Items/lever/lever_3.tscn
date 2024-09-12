@@ -1,0 +1,165 @@
+[gd_scene load_steps=14 format=3 uid="uid://bdihs2d1ay5wl"]
+
+[ext_resource type="Script" path="res://Items/lever/lever_3.gd" id="1_5n0ey"]
+[ext_resource type="Texture2D" uid="uid://bthmpa4ix8cxm" path="res://Assets/Tileset/Sprites/Tilesets_Deep_LVL.png" id="2_m6un4"]
+[ext_resource type="PackedScene" uid="uid://c0bqbwk5cf7lp" path="res://Interactions/interaction_area/interaction_area.tscn" id="3_7p38m"]
+[ext_resource type="AudioStream" uid="uid://d2yopl7of3mxj" path="res://Assets/Audio/switch.wav" id="4_khno8"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="5_0e18b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp1pr"]
+atlas = ExtResource("2_m6un4")
+region = Rect2(192, 176, 48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_337ln"]
+size = Vector2(12, 5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3ygvh"]
+
+[sub_resource type="Animation" id="Animation_ipgit"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_oqrmi"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_dpond"]
+resource_name = "reverse_switch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_khno8")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}],
+"times": PackedFloat32Array(-0.1, 0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_0fibl"]
+resource_name = "switch_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_khno8")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": null
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_khno8")
+}],
+"times": PackedFloat32Array(-0.1, 0, 0.1)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q4snp"]
+_data = {
+"RESET": SubResource("Animation_ipgit"),
+"default": SubResource("Animation_oqrmi"),
+"reverse_switch": SubResource("Animation_dpond"),
+"switch_on": SubResource("Animation_0fibl")
+}
+
+[node name="Lever3" type="Node2D"]
+script = ExtResource("1_5n0ey")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_fp1pr")
+hframes = 3
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_337ln")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_7p38m")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_3ygvh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q4snp")
+}
+autoplay = "default"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = 8.0
+offset_right = 20.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("5_0e18b")
+theme_override_font_sizes/font_size = 12
+text = "TRUE"
+horizontal_alignment = 1
+vertical_alignment = 1

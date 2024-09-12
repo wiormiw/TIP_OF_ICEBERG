@@ -1,0 +1,201 @@
+[gd_scene load_steps=11 format=3 uid="uid://dm5vlbur7glr7"]
+
+[ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_tvml6"]
+[ext_resource type="Theme" uid="uid://bwlojsq15vawp" path="res://GUI/new_theme.tres" id="2_bi5b8"]
+[ext_resource type="Texture2D" uid="uid://6lkd5x6xyhsm" path="res://Assets/Tileset/Sprites/UI_BOOKS.png" id="2_h76og"]
+[ext_resource type="PackedScene" uid="uid://mkrequyfi1ca" path="res://GUI/pause_menu/secret_note_ui/secret_note_slot.tscn" id="3_6jqma"]
+[ext_resource type="FontFile" uid="uid://bhti6gyy7mbi3" path="res://Assets/Fonts/pansyhand.ttf" id="3_h85kx"]
+[ext_resource type="Script" path="res://GUI/pause_menu/secret_note_ui/secret_note_ui.gd" id="3_n05jl"]
+[ext_resource type="Resource" uid="uid://nvevm6jkfb68" path="res://GUI/secret_note/scripts/player_secret_note_inventory.tres" id="4_nf2op"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="8_iaogd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm728"]
+atlas = ExtResource("2_h76og")
+region = Rect2(768, 16, 48, 48)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lcl8c"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+texture = SubResource("AtlasTexture_vm728")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_tvml6")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 0.831373)
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.0
+offset_top = -88.0
+offset_right = 226.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lcl8c")
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 12
+script = ExtResource("3_n05jl")
+data = ExtResource("4_nf2op")
+
+[node name="SecretNoteSlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot4" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot5" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot6" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot7" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot8" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot9" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot10" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot11" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot12" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot13" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot14" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot15" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot16" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot17" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot18" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot19" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot20" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot21" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot22" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot23" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="SecretNoteSlot24" parent="Control/PanelContainer/GridContainer" instance=ExtResource("3_6jqma")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -40.0
+offset_right = 170.0
+offset_bottom = -12.0
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="ButtonSave" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_bi5b8")
+text = "SAVE"
+
+[node name="ButtonLoad" type="Button" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_bi5b8")
+text = "LOAD"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.643137)
+theme_override_fonts/font = ExtResource("3_h85kx")
+theme_override_font_sizes/font_size = 48
+text = "[ Paused ]"
+
+[node name="SecretNoteDescription" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -227.0
+offset_top = -70.0
+offset_right = -15.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.643137)
+theme_override_fonts/font = ExtResource("8_iaogd")
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+max_polyphony = 4

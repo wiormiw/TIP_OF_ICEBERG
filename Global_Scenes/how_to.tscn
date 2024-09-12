@@ -1,0 +1,189 @@
+[gd_scene load_steps=18 format=3 uid="uid://b1meh4446csom"]
+
+[ext_resource type="Script" path="res://Global_Scenes/how_to.gd" id="1_3iivc"]
+[ext_resource type="Theme" uid="uid://bwlojsq15vawp" path="res://GUI/new_theme.tres" id="1_gsir3"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="2_pwsm8"]
+[ext_resource type="Texture2D" uid="uid://o8bb7q4vjlip" path="res://Assets/Objects/Sprites/GUI_Element/HOW_TO_1.png" id="3_d5jyy"]
+[ext_resource type="Texture2D" uid="uid://b360p8c25jkqm" path="res://Assets/Objects/Sprites/GUI_Element/animated_wasd.png" id="4_ugrlk"]
+[ext_resource type="Texture2D" uid="uid://vxyv1o0goap2" path="res://Assets/Objects/Sprites/GUI_Element/Button_Left.png" id="5_d7w8t"]
+[ext_resource type="Texture2D" uid="uid://ddyjrf5iohha6" path="res://Assets/Objects/Sprites/GUI_Element/Button_Left_Pressed.png" id="6_wcbbb"]
+[ext_resource type="Texture2D" uid="uid://fml7n851r5hi" path="res://Assets/Objects/Sprites/GUI_Element/Button_Right.png" id="7_7dinq"]
+[ext_resource type="Texture2D" uid="uid://lw8vshrnjhsy" path="res://Assets/Objects/Sprites/GUI_Element/Button_Right_Pressed.png" id="8_10ymu"]
+[ext_resource type="Texture2D" uid="uid://cqsuxq87mrt34" path="res://Assets/Objects/Sprites/GUI_Element/Close_Button.png" id="9_24kpp"]
+[ext_resource type="AudioStream" uid="uid://cf67e06bx2ob2" path="res://Assets/Audio/confirm_1.wav" id="11_04bik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i10a6"]
+atlas = ExtResource("9_24kpp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxcu7"]
+atlas = ExtResource("9_24kpp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kapyh"]
+atlas = ExtResource("9_24kpp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_22w3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Panel/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(400, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Panel/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_iivak"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/Panel/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [Vector2(400, 100), Vector2(400, 110)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/Panel/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2, 2),
+"update": 0,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81ea1"]
+_data = {
+"RESET": SubResource("Animation_22w3g"),
+"default": SubResource("Animation_iivak")
+}
+
+[node name="HowTo" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_3iivc")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_gsir3")
+
+[node name="Title" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_pwsm8")
+theme_override_font_sizes/font_size = 32
+text = "dada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 67.0
+offset_right = 1787.0
+offset_bottom = 1050.0
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_d5jyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Panel"]
+position = Vector2(400, 100)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ugrlk")
+hframes = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(96, 16)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -83.0
+offset_right = -15.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="PrevButton" type="TextureButton" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("5_d7w8t")
+texture_pressed = ExtResource("6_wcbbb")
+
+[node name="NextButton" type="TextureButton" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("7_7dinq")
+texture_pressed = ExtResource("8_10ymu")
+
+[node name="CloseBtn" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 10.0
+offset_right = 454.0
+offset_bottom = 26.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_i10a6")
+texture_pressed = SubResource("AtlasTexture_hxcu7")
+texture_hover = SubResource("AtlasTexture_kapyh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_81ea1")
+}
+autoplay = "default"
+
+[node name="AudioStreamPlayerHowTo" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_04bik")
+max_polyphony = 10
+
+[connection signal="pressed" from="Control/HBoxContainer/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Control/CloseBtn" to="." method="_on_close_btn_pressed"]

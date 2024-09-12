@@ -1,0 +1,75 @@
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://bwlojsq15vawp"]
+
+[ext_resource type="Texture2D" uid="uid://viuxxuiqn5gh" path="res://Assets/Tileset/Sprites/Raven_Fantasy_GUI_Starter_Set.png" id="1_j4cxl"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="2_xw5jh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_borcr"]
+atlas = ExtResource("1_j4cxl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsumi"]
+texture = SubResource("AtlasTexture_borcr")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4kh4"]
+atlas = ExtResource("1_j4cxl")
+region = Rect2(240, 32, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sjb0"]
+texture = SubResource("AtlasTexture_w4kh4")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuiuv"]
+atlas = ExtResource("1_j4cxl")
+region = Rect2(240, 16, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y3t2h"]
+texture = SubResource("AtlasTexture_iuiuv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqsv7"]
+atlas = ExtResource("1_j4cxl")
+region = Rect2(240, 16, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xd5v6"]
+texture = SubResource("AtlasTexture_oqsv7")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrooq"]
+atlas = ExtResource("1_j4cxl")
+region = Rect2(240, 16, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_28c0f"]
+texture = SubResource("AtlasTexture_lrooq")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6u8o"]
+atlas = ExtResource("1_j4cxl")
+region = Rect2(24, 8, 32, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ug7lh"]
+texture = SubResource("AtlasTexture_x6u8o")
+
+[resource]
+default_font = ExtResource("2_xw5jh")
+default_font_size = 16
+Button/styles/disabled = SubResource("StyleBoxTexture_dsumi")
+Button/styles/focus = SubResource("StyleBoxTexture_4sjb0")
+Button/styles/hover = SubResource("StyleBoxTexture_y3t2h")
+Button/styles/normal = SubResource("StyleBoxTexture_xd5v6")
+Button/styles/pressed = SubResource("StyleBoxTexture_28c0f")
+Panel/styles/panel = SubResource("StyleBoxTexture_ug7lh")

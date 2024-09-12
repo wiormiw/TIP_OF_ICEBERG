@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://4qf45773ok4n"]
+
+[ext_resource type="Script" path="res://General_Nodes/feed_back_user.gd" id="1_e0gbb"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="2_7bhkb"]
+[ext_resource type="Texture2D" uid="uid://b0g7wn22hau42" path="res://Assets/Objects/Sprites/GUI_Element/Button_Enter.png" id="3_5emfw"]
+[ext_resource type="Texture2D" uid="uid://do8awexbrxnuu" path="res://Assets/Objects/Sprites/GUI_Element/Button_Enter_Pressed.png" id="4_n36tn"]
+[ext_resource type="Theme" uid="uid://bwlojsq15vawp" path="res://GUI/new_theme.tres" id="5_42asp"]
+
+[node name="FeedbackUser" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_e0gbb")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.0
+offset_right = 167.0
+offset_bottom = 32.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_7bhkb")
+theme_override_font_sizes/font_size = 16
+text = "Kesan/Pesan dan Favorit Konsep Dalam TOI "
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+
+[node name="TextEdit" type="TextEdit" parent="Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 33.0
+offset_right = 367.0
+offset_bottom = 255.0
+theme_override_fonts/font = ExtResource("2_7bhkb")
+theme_override_font_sizes/font_size = 12
+placeholder_text = "Tulis pengalamanmu dalam bermain TOI.
+
+Buat tulisanmu dalam bentuk program kecil!
+
+Contoh:
+if (bermain_TOI) {
+   Aku senang :)
+} else {
+   Aku sedih :(
+}"
+wrap_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control"]
+max_polyphony = 10
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 220.0
+offset_right = 523.0
+offset_bottom = 284.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_5emfw")
+texture_pressed = ExtResource("4_n36tn")
+
+[node name="AcceptDialog" type="AcceptDialog" parent="Control"]
+theme = ExtResource("5_42asp")
+ok_button_text = "BACK"
+
+[connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]

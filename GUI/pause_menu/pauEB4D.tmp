@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm5vlbur7glr7"]
+
+[ext_resource type="Script" path="res://GUI/pause_menu/pause_menu.gd" id="1_tvml6"]
+[ext_resource type="Theme" uid="uid://bwlojsq15vawp" path="res://GUI/new_theme.tres" id="2_bi5b8"]
+[ext_resource type="FontFile" uid="uid://bhti6gyy7mbi3" path="res://Assets/Fonts/pansyhand.ttf" id="3_h85kx"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_tvml6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.141176, 0.141176, 0.141176, 0.831373)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = -33.0
+offset_right = 68.5
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonSave" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_bi5b8")
+text = "SAVE"
+
+[node name="ButtonLoad" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_bi5b8")
+text = "LOAD"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -207.0
+offset_right = 33.5
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.643137)
+theme_override_fonts/font = ExtResource("3_h85kx")
+theme_override_font_sizes/font_size = 48
+text = "[ Paused ]"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

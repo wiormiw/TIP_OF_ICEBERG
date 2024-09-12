@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://bm7egups8nyi6"]
+
+[ext_resource type="Script" path="res://Items/item_effects/item_effect_destroy.gd" id="1_1jr47"]
+[ext_resource type="Script" path="res://Items/scripts/item_data.gd" id="1_lx5mh"]
+[ext_resource type="Texture2D" uid="uid://ba53ww4ow85po" path="res://Items/sprites/gems.png" id="2_8k2ip"]
+
+[sub_resource type="Resource" id="Resource_e1ktu"]
+script = ExtResource("1_1jr47")
+item_name_to_destroy = "Kristal Hijau"
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byl3e"]
+atlas = ExtResource("2_8k2ip")
+region = Rect2(208, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_lx5mh")
+name = "Permata Hijau"
+description = "Sebuah item untuk menghancurkan kristal hijau."
+texture = SubResource("AtlasTexture_byl3e")
+effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([SubResource("Resource_e1ktu")])

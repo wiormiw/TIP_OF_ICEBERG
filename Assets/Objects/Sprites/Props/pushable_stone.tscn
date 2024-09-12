@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh312id24rr6j"]
+
+[ext_resource type="Script" path="res://Assets/Objects/Sprites/Props/pushable_stone.gd" id="1_nu8fv"]
+[ext_resource type="Texture2D" uid="uid://bthmpa4ix8cxm" path="res://Assets/Tileset/Sprites/Tilesets_Deep_LVL.png" id="2_8j6lr"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="3_1vwku"]
+[ext_resource type="AudioStream" uid="uid://dip2qnnvab2vv" path="res://Assets/Audio/push_stone.wav" id="4_3c6qb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny3wj"]
+size = Vector2(16, 14)
+
+[node name="PushableStone" type="RigidBody2D"]
+collision_layer = 16
+collision_mask = 273
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_nu8fv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ny3wj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_8j6lr")
+region_enabled = true
+region_rect = Rect2(256, 112, 16, 32)
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+custom_minimum_size = Vector2(8, 8)
+offset_left = -7.0
+offset_top = 3.0
+offset_right = 7.0
+offset_bottom = 15.0
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -7.0
+offset_top = 2.0
+offset_right = 21.0
+offset_bottom = 28.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_1vwku")
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3c6qb")

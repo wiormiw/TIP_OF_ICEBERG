@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://4hnv444lc7x7"]
+
+[ext_resource type="Script" path="res://Items/sign/sign_door.gd" id="1_xt20q"]
+[ext_resource type="PackedScene" uid="uid://c0bqbwk5cf7lp" path="res://Interactions/interaction_area/interaction_area.tscn" id="2_72527"]
+[ext_resource type="Texture2D" uid="uid://cxv7spn6r3lmn" path="res://Assets/Objects/Sprites/Props/Sign.png" id="3_ifrth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2dpx"]
+size = Vector2(16, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0drd4"]
+radius = 14.0
+
+[node name="SignDoor" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_xt20q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_y2dpx")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_72527")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_0drd4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_ifrth")

@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn4rcwesgxjl0"]
+
+[ext_resource type="Script" path="res://GUI/secret_note/scripts/secret_note.gd" id="1_sa1vw"]
+[ext_resource type="Texture2D" uid="uid://dcu6x3kjl0i6q" path="res://Assets/Objects/Sprites/GUI_Element/Secret_Note_GUI.png" id="2_d7rjh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ifay"]
+atlas = ExtResource("2_d7rjh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yipef"]
+atlas = ExtResource("2_d7rjh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5rua"]
+atlas = ExtResource("2_d7rjh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p27uw"]
+atlas = ExtResource("2_d7rjh")
+region = Rect2(64, 0, 32, 32)
+
+[node name="SecretNote" type="CanvasLayer"]
+script = ExtResource("1_sa1vw")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = SubResource("AtlasTexture_8ifay")
+texture_pressed = SubResource("AtlasTexture_yipef")
+texture_hover = SubResource("AtlasTexture_b5rua")
+texture_focused = SubResource("AtlasTexture_p27uw")
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 65.0
+grow_horizontal = 2
+grow_vertical = 2

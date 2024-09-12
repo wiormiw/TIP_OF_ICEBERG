@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://dwel2hkiojwiy"]
+
+[ext_resource type="Script" path="res://Enemies/UnknownNPC/npc_ending.gd" id="1_r8a1e"]
+[ext_resource type="Texture2D" uid="uid://c4yukd0if5v2i" path="res://Enemies/UnknownNPC/Prototype_Character.png" id="2_c5q36"]
+[ext_resource type="Texture2D" uid="uid://bxxvwhho2bqle" path="res://Enemies/UnknownNPC/Shadow.png" id="3_k7bsi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4big"]
+
+[sub_resource type="Animation" id="Animation_76pku"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7cjro"]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 36, 37, 38, 39]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_mu3is"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uwtr7"]
+_data = {
+"RESET": SubResource("Animation_76pku"),
+"die": SubResource("Animation_7cjro"),
+"idle": SubResource("Animation_mu3is")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ij773"]
+radius = 16.0
+
+[node name="NPCEnding" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_r8a1e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c5q36")
+hframes = 4
+vframes = 12
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("3_k7bsi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u4big")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_uwtr7")
+}
+autoplay = "idle"
+
+[node name="NPCEXIT" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCEXIT"]
+shape = SubResource("CircleShape2D_ij773")

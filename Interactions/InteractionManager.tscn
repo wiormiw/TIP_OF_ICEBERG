@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckg5r78txb4jv"]
+
+[ext_resource type="Script" path="res://Interactions/interaction_manager.gd" id="1_qklla"]
+[ext_resource type="FontFile" uid="uid://bhti6gyy7mbi3" path="res://Assets/Fonts/pansyhand.ttf" id="1_ukgil"]
+[ext_resource type="Texture2D" uid="uid://3fbyk7836iwk" path="res://Assets/Objects/Sprites/Props/Interaction_Bubble.png" id="3_2vsqw"]
+
+[sub_resource type="Animation" id="Animation_kgpah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h8tor"]
+resource_name = "default"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2yiic"]
+_data = {
+"RESET": SubResource("Animation_kgpah"),
+"default": SubResource("Animation_h8tor")
+}
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_qklla")
+
+[node name="Label" type="Label" parent="."]
+z_index = 20
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.5
+offset_right = 88.5
+offset_bottom = 41.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ukgil")
+theme_override_font_sizes/font_size = 16
+text = "[F] TO INTERACT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Label"]
+position = Vector2(88, 7)
+texture = ExtResource("3_2vsqw")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+libraries = {
+"": SubResource("AnimationLibrary_2yiic")
+}
+autoplay = "default"

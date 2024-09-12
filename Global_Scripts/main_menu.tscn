@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://cwj3oy7kuwlq4"]
+
+[ext_resource type="Texture2D" uid="uid://my024o31yq6k" path="res://Assets/Addons/Main_menu_background.png" id="1_8dvqc"]
+[ext_resource type="Script" path="res://Global_Scripts/main_menu.gd" id="1_diiwr"]
+[ext_resource type="Texture2D" uid="uid://3sogvr0qqvln" path="res://Assets/Objects/Sprites/GUI_Element/Play_Button.png" id="2_ey6kq"]
+[ext_resource type="Texture2D" uid="uid://b40ybma5n8o5" path="res://Assets/Objects/Sprites/GUI_Element/How_To_Button.png" id="4_px7pf"]
+[ext_resource type="Texture2D" uid="uid://bywwj5webfjek" path="res://Assets/Objects/Sprites/GUI_Element/Materials_Button.png" id="5_tecad"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnav3"]
+atlas = ExtResource("2_ey6kq")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqf4i"]
+atlas = ExtResource("2_ey6kq")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuio6"]
+atlas = ExtResource("2_ey6kq")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0bo7"]
+atlas = ExtResource("4_px7pf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqcrp"]
+atlas = ExtResource("4_px7pf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unuyh"]
+atlas = ExtResource("4_px7pf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cx24"]
+atlas = ExtResource("5_tecad")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo57p"]
+atlas = ExtResource("5_tecad")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_errja"]
+atlas = ExtResource("5_tecad")
+region = Rect2(16, 0, 16, 16)
+
+[node name="MainMenu" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_diiwr")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(240, 115)
+scale = Vector2(0.268676, 0.30844)
+texture = ExtResource("1_8dvqc")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="TextureButton" parent="Control"]
+layout_mode = 2
+offset_left = 150.0
+offset_top = 139.0
+offset_right = 166.0
+offset_bottom = 155.0
+scale = Vector2(2.5, 2.5)
+size_flags_horizontal = 4
+texture_normal = SubResource("AtlasTexture_lnav3")
+texture_pressed = SubResource("AtlasTexture_fqf4i")
+texture_hover = SubResource("AtlasTexture_fuio6")
+stretch_mode = 3
+
+[node name="HowToButton" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 286.0
+offset_top = 139.0
+offset_right = 302.0
+offset_bottom = 155.0
+scale = Vector2(2.5, 2.5)
+texture_normal = SubResource("AtlasTexture_g0bo7")
+texture_pressed = SubResource("AtlasTexture_mqcrp")
+texture_hover = SubResource("AtlasTexture_unuyh")
+stretch_mode = 3
+
+[node name="MaterialsButton" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 109.0
+offset_right = 228.0
+offset_bottom = 149.0
+scale = Vector2(2.5, 2.5)
+texture_normal = SubResource("AtlasTexture_3cx24")
+texture_pressed = SubResource("AtlasTexture_eo57p")
+texture_hover = SubResource("AtlasTexture_errja")
+stretch_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+max_polyphony = 10
+
+[connection signal="pressed" from="Control/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Control/HowToButton" to="." method="_on_how_to_button_pressed"]
+[connection signal="pressed" from="Control/MaterialsButton" to="." method="_on_materials_button_pressed"]

@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctnrfvdn5627q"]
+
+[ext_resource type="Script" path="res://General_Nodes/certificate.gd" id="1_ijwrx"]
+[ext_resource type="Texture2D" uid="uid://6lkd5x6xyhsm" path="res://Assets/Tileset/Sprites/UI_BOOKS.png" id="1_m08lf"]
+[ext_resource type="Texture2D" uid="uid://cqsuxq87mrt34" path="res://Assets/Objects/Sprites/GUI_Element/Close_Button.png" id="2_voij5"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="3_n5opi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6fjo"]
+atlas = ExtResource("1_m08lf")
+region = Rect2(656, 16, 48, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah546"]
+atlas = ExtResource("2_voij5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3ym8"]
+atlas = ExtResource("2_voij5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3v1k"]
+atlas = ExtResource("2_voij5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3n5nw"]
+atlas = ExtResource("1_m08lf")
+region = Rect2(384, 208, 16, 32)
+
+[node name="Certificate" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_ijwrx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 15.0
+offset_right = 444.0
+offset_bottom = 255.0
+texture = SubResource("AtlasTexture_v6fjo")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="TextureButton" type="TextureButton" parent="Control/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 14.0
+offset_right = -22.0
+offset_bottom = 30.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+texture_normal = SubResource("AtlasTexture_ah546")
+texture_pressed = SubResource("AtlasTexture_v3ym8")
+texture_hover = SubResource("AtlasTexture_p3v1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/NinePatchRect"]
+position = Vector2(60, 120)
+scale = Vector2(5, 5)
+texture = SubResource("AtlasTexture_3n5nw")
+
+[node name="Label" type="Label" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 81.0
+offset_right = 362.0
+offset_bottom = 150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n5opi")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 4
+uppercase = true
+
+[node name="Label2" type="Label" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 17.0
+offset_right = 358.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n5opi")
+theme_override_font_sizes/font_size = 16
+text = "CONGRATULATIONS FOR COMPLETING TOI"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 2
+uppercase = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 195.0
+offset_right = 341.0
+offset_bottom = 231.0
+texture = ExtResource("1_m08lf")
+region_rect = Rect2(352, 272, 32, 16)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label3" type="Label" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 203.0
+offset_right = 299.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n5opi")
+theme_override_font_sizes/font_size = 12
+text = "TOTAL COLLECTED NOTES :"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 2
+uppercase = true
+
+[node name="Label4" type="Label" parent="Control/NinePatchRect"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 203.0
+offset_right = 328.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_n5opi")
+theme_override_font_sizes/font_size = 12
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 2
+uppercase = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true

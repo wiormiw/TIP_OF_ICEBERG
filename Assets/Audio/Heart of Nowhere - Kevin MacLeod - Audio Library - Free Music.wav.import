@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://krjxukr40s26"
+path="res://.godot/imported/Heart of Nowhere - Kevin MacLeod - Audio Library - Free Music.wav-3cac78fb7ec8b65056eafcb69f8795c1.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Heart of Nowhere - Kevin MacLeod - Audio Library - Free Music.wav"
+dest_files=["res://.godot/imported/Heart of Nowhere - Kevin MacLeod - Audio Library - Free Music.wav-3cac78fb7ec8b65056eafcb69f8795c1.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

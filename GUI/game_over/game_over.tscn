@@ -1,0 +1,150 @@
+[gd_scene load_steps=17 format=3 uid="uid://lji5res2wcjc"]
+
+[ext_resource type="Script" path="res://GUI/game_over/game_over.gd" id="1_4gdxn"]
+[ext_resource type="Theme" uid="uid://bwlojsq15vawp" path="res://GUI/new_theme.tres" id="2_1pg44"]
+[ext_resource type="FontFile" uid="uid://bhti6gyy7mbi3" path="res://Assets/Fonts/pansyhand.ttf" id="2_mwr08"]
+[ext_resource type="Texture2D" uid="uid://bnokg8kd1qc7f" path="res://Assets/Character/Body/Body.png" id="3_40dxe"]
+[ext_resource type="Texture2D" uid="uid://mfwitkfjf2py" path="res://Assets/Objects/Sprites/GUI_Element/Retry_Button.png" id="3_u5kxr"]
+[ext_resource type="Texture2D" uid="uid://b58wcamgv8eym" path="res://Assets/Character/Eyes/EyesBase.png" id="5_mghh2"]
+[ext_resource type="Texture2D" uid="uid://cdj4gi36wvjo0" path="res://Assets/Character/Eyes/Eyes.png" id="6_hd3l3"]
+[ext_resource type="Texture2D" uid="uid://bwnff22imnwtn" path="res://Assets/Character/Uniform/Uniform_0.png" id="10_xds8h"]
+[ext_resource type="Texture2D" uid="uid://c5ievfv3ewji2" path="res://Assets/Character/Pants/Pants_0.png" id="12_l3lna"]
+[ext_resource type="Texture2D" uid="uid://dsdy2vv1iar4j" path="res://Assets/Character/Shoes/Shoes_0.png" id="14_7liho"]
+[ext_resource type="Texture2D" uid="uid://butpc6x10wosp" path="res://Assets/Character/Arms/Arms.png" id="15_g0x1f"]
+[ext_resource type="Texture2D" uid="uid://bobdpj77lqpx8" path="res://Assets/Character/Sleeves/Sleeves_0.png" id="16_n2ye5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wej2"]
+atlas = ExtResource("3_u5kxr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy6oo"]
+atlas = ExtResource("3_u5kxr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qydn5"]
+atlas = ExtResource("3_u5kxr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdphu"]
+atlas = ExtResource("3_u5kxr")
+region = Rect2(96, 0, 32, 32)
+
+[node name="GameOver" type="CanvasLayer"]
+process_mode = 3
+layer = 3
+script = ExtResource("1_4gdxn")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1pg44")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = -225.0
+offset_right = 60.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.643137)
+theme_override_fonts/font = ExtResource("2_mwr08")
+theme_override_font_sizes/font_size = 48
+text = "[ GAME OVER ]"
+
+[node name="TextureButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 99.0
+offset_right = 238.0
+offset_bottom = 131.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_3wej2")
+texture_pressed = SubResource("AtlasTexture_jy6oo")
+texture_hover = SubResource("AtlasTexture_qydn5")
+texture_disabled = SubResource("AtlasTexture_cdphu")
+
+[node name="Skeleton" type="Node2D" parent="."]
+position = Vector2(240, 180)
+scale = Vector2(4, 4)
+
+[node name="Body" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Body"]
+texture = ExtResource("3_40dxe")
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="Eyes" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2DBase" type="Sprite2D" parent="Skeleton/Eyes"]
+texture = ExtResource("5_mghh2")
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Eyes"]
+texture = ExtResource("6_hd3l3")
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="Hair" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Hair"]
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="Uniform" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Uniform"]
+texture = ExtResource("10_xds8h")
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="Pants" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Pants"]
+texture = ExtResource("12_l3lna")
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="Shoes" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Shoes"]
+texture = ExtResource("14_7liho")
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="Arms" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Arms"]
+texture = ExtResource("15_g0x1f")
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="Sleeves" type="Node2D" parent="Skeleton"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton/Sleeves"]
+texture = ExtResource("16_n2ye5")
+hframes = 24
+vframes = 4
+frame = 93
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]

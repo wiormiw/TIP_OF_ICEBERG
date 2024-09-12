@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp383uwj2e3of"]
+
+[ext_resource type="Script" path="res://Items/item_pickup/item_pickup_10.gd" id="1_ujhom"]
+[ext_resource type="PackedScene" uid="uid://c0bqbwk5cf7lp" path="res://Interactions/interaction_area/interaction_area.tscn" id="2_gmptx"]
+[ext_resource type="AudioStream" uid="uid://rucv84eccw3s" path="res://Assets/Audio/secret_note_pickup.wav" id="3_fxti2"]
+[ext_resource type="PackedScene" uid="uid://dmigfjcjd3r57" path="res://General_Nodes/PersistentDataHelper/persistent_data_handler.tscn" id="4_okqen"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_skl3e"]
+radius = 12.0
+
+[node name="ItemPickupKey10" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ujhom")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_gmptx")]
+monitoring = false
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_skl3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fxti2")
+max_polyphony = 4
+
+[node name="PersistentDataHandler" parent="." instance=ExtResource("4_okqen")]

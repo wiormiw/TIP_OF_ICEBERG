@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxo48vev084vn"]
+
+[ext_resource type="Script" path="res://Levels/Stage_2/scripts/color_lever.gd" id="1_7ks0d"]
+[ext_resource type="PackedScene" uid="uid://dikk4bnsjv3jx" path="res://Items/lever/lever_7.tscn" id="2_goo55"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="3_6u5pf"]
+
+[node name="ColorLever3" type="Node2D"]
+z_index = -2
+script = ExtResource("1_7ks0d")
+
+[node name="Lever7-7" parent="." instance=ExtResource("2_goo55")]
+unique_name_in_owner = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -24.0
+offset_right = 21.0
+offset_bottom = -1.0
+theme_override_fonts/font = ExtResource("3_6u5pf")
+theme_override_font_sizes/font_size = 10
+text = "Purple"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

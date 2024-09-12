@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://byqep542n4dwx"]
+
+[ext_resource type="Texture2D" uid="uid://viuxxuiqn5gh" path="res://Assets/Tileset/Sprites/Raven_Fantasy_GUI_Starter_Set.png" id="1_14rbc"]
+[ext_resource type="Texture2D" uid="uid://ba53ww4ow85po" path="res://Items/sprites/gems.png" id="1_mmre4"]
+[ext_resource type="Script" path="res://GUI/inventory/scripts/inventory_slot_ui.gd" id="2_5tfah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44jmd"]
+atlas = ExtResource("1_14rbc")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhn4y"]
+atlas = ExtResource("1_14rbc")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a14bn"]
+atlas = ExtResource("1_14rbc")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v8r0"]
+atlas = ExtResource("1_14rbc")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goijq"]
+atlas = ExtResource("1_14rbc")
+region = Rect2(304, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s84rf"]
+atlas = ExtResource("1_mmre4")
+region = Rect2(0, 0, 16, 16)
+
+[node name="InventorySlot" type="TextureButton"]
+offset_right = 16.0
+offset_bottom = 16.0
+texture_normal = SubResource("AtlasTexture_44jmd")
+texture_pressed = SubResource("AtlasTexture_yhn4y")
+texture_hover = SubResource("AtlasTexture_a14bn")
+texture_disabled = SubResource("AtlasTexture_6v8r0")
+texture_focused = SubResource("AtlasTexture_goijq")
+script = ExtResource("2_5tfah")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = SubResource("AtlasTexture_s84rf")
+stretch_mode = 3

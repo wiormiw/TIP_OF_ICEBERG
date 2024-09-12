@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://b22o15lojcxts"]
+
+[ext_resource type="Script" path="res://GUI/inventory/scripts/inventory.gd" id="1_n784c"]
+[ext_resource type="Texture2D" uid="uid://b77df6o8mmjcd" path="res://Items/sprites/item_placeholder.png" id="1_y4tmn"]
+[ext_resource type="PackedScene" uid="uid://byqep542n4dwx" path="res://GUI/inventory/inventory_slot.tscn" id="2_hkx63"]
+[ext_resource type="Script" path="res://GUI/inventory/inventory_ui.gd" id="3_ib2xc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x7mqg"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+texture = ExtResource("1_y4tmn")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+
+[node name="Inventory" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_n784c")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 177.0
+offset_top = 188.0
+offset_right = 243.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_x7mqg")
+
+[node name="GridContainer" type="GridContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+columns = 3
+script = ExtResource("3_ib2xc")
+
+[node name="InventorySlot" parent="Control/PanelContainer/GridContainer" instance=ExtResource("2_hkx63")]
+layout_mode = 2
+
+[node name="InventorySlot2" parent="Control/PanelContainer/GridContainer" instance=ExtResource("2_hkx63")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="Control/PanelContainer/GridContainer" instance=ExtResource("2_hkx63")]
+layout_mode = 2

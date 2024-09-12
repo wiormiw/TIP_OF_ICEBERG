@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://qjw2pjdhfefk"]
+
+[ext_resource type="Script" path="res://Items/item_effects/item_effect_destroy.gd" id="1_ns8qy"]
+[ext_resource type="Script" path="res://Items/scripts/item_data.gd" id="1_ofxix"]
+[ext_resource type="Texture2D" uid="uid://ba53ww4ow85po" path="res://Items/sprites/gems.png" id="2_2e6ki"]
+
+[sub_resource type="Resource" id="Resource_gon28"]
+script = ExtResource("1_ns8qy")
+item_name_to_destroy = "Kristal Ungu"
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byl3e"]
+atlas = ExtResource("2_2e6ki")
+region = Rect2(224, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_ofxix")
+name = "Permata Ungu"
+description = "Sebuah item untuk menghancurkan kristal ungu."
+texture = SubResource("AtlasTexture_byl3e")
+effects = Array[Resource("res://Items/item_effects/item_effect.gd")]([SubResource("Resource_gon28")])

@@ -1,0 +1,136 @@
+[gd_scene load_steps=17 format=3 uid="uid://dmsg2s4y44m5m"]
+
+[ext_resource type="Script" path="res://Global_Scenes/materials.gd" id="1_qk4sx"]
+[ext_resource type="Theme" uid="uid://bwlojsq15vawp" path="res://GUI/new_theme.tres" id="2_j820t"]
+[ext_resource type="FontFile" uid="uid://b2ucr3aykjgoy" path="res://Assets/Fonts/PixelifySans-VariableFont_wght.ttf" id="3_vyxa1"]
+[ext_resource type="Texture2D" uid="uid://b360p8c25jkqm" path="res://Assets/Objects/Sprites/GUI_Element/animated_wasd.png" id="5_vpdew"]
+[ext_resource type="Texture2D" uid="uid://vxyv1o0goap2" path="res://Assets/Objects/Sprites/GUI_Element/Button_Left.png" id="6_y2kfw"]
+[ext_resource type="Texture2D" uid="uid://ddyjrf5iohha6" path="res://Assets/Objects/Sprites/GUI_Element/Button_Left_Pressed.png" id="7_tks0u"]
+[ext_resource type="Texture2D" uid="uid://fml7n851r5hi" path="res://Assets/Objects/Sprites/GUI_Element/Button_Right.png" id="8_1ogr5"]
+[ext_resource type="Texture2D" uid="uid://lw8vshrnjhsy" path="res://Assets/Objects/Sprites/GUI_Element/Button_Right_Pressed.png" id="9_qndty"]
+[ext_resource type="Texture2D" uid="uid://cqsuxq87mrt34" path="res://Assets/Objects/Sprites/GUI_Element/Close_Button.png" id="10_5341x"]
+[ext_resource type="AudioStream" uid="uid://cf67e06bx2ob2" path="res://Assets/Audio/confirm_1.wav" id="11_difia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i10a6"]
+atlas = ExtResource("10_5341x")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxcu7"]
+atlas = ExtResource("10_5341x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kapyh"]
+atlas = ExtResource("10_5341x")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_22w3g"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_iivak"]
+resource_name = "default"
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_81ea1"]
+_data = {
+"RESET": SubResource("Animation_22w3g"),
+"default": SubResource("Animation_iivak")
+}
+
+[node name="Materials" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_qk4sx")
+
+[node name="Control" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_j820t")
+
+[node name="Title" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_vyxa1")
+theme_override_font_sizes/font_size = 32
+text = "dada"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Materials" type="TextureRect" parent="Control/Panel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 77.0
+offset_top = 52.0
+offset_right = 727.0
+offset_bottom = 354.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_vpdew")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(96, 16)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -76.0
+offset_top = -48.0
+offset_right = 56.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="PrevButton" type="TextureButton" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("6_y2kfw")
+texture_pressed = ExtResource("7_tks0u")
+
+[node name="NextButton" type="TextureButton" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture_normal = ExtResource("8_1ogr5")
+texture_pressed = ExtResource("9_qndty")
+
+[node name="CloseBtn" type="TextureButton" parent="Control"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 10.0
+offset_right = 454.0
+offset_bottom = 26.0
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_i10a6")
+texture_pressed = SubResource("AtlasTexture_hxcu7")
+texture_hover = SubResource("AtlasTexture_kapyh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_81ea1")
+}
+autoplay = "default"
+
+[node name="AudioStreamPlayerMaterials" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_difia")
+max_polyphony = 10
+
+[connection signal="pressed" from="Control/HBoxContainer/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Control/CloseBtn" to="." method="_on_close_btn_pressed"]

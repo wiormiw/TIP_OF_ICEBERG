@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3db3tq128isc"]
+
+[ext_resource type="Script" path="res://Items/item_pickup/item_pickup_no_inventory.gd" id="1_r4d4i"]
+[ext_resource type="PackedScene" uid="uid://c0bqbwk5cf7lp" path="res://Interactions/interaction_area/interaction_area.tscn" id="2_iftbf"]
+[ext_resource type="AudioStream" uid="uid://1a1io2p7c386" path="res://Assets/Audio/item_pickup.wav" id="3_vh0g8"]
+[ext_resource type="PackedScene" uid="uid://dmigfjcjd3r57" path="res://General_Nodes/PersistentDataHelper/persistent_data_handler.tscn" id="4_h0f13"]
+[ext_resource type="Script" path="res://General_Nodes/HurtBox/hurt_box.gd" id="5_fojgk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_skl3e"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nmvwf"]
+radius = 32.0
+
+[node name="ItemPickupNoInventory" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_r4d4i")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_iftbf")]
+action_name = "pick up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_skl3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vh0g8")
+
+[node name="PersistentDataHandler" parent="." instance=ExtResource("4_h0f13")]
+
+[node name="KeyHurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("5_fojgk")
+damage = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeyHurtBox"]
+shape = SubResource("CircleShape2D_nmvwf")
