@@ -1,5 +1,6 @@
 # ABOUT THIS PROJECT
 > Simple top-down 2D Adventure-game to learn about fundamental programming!
+<br>
 > Written in godot 4.0 (compatibility enabled)
 
 ## HOW TO RUN?
