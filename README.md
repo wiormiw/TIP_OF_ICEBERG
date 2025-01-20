@@ -1,4 +1,5 @@
 # ABOUT THIS PROJECT
+![alt text](https://github.com/wiormiw/TIP_OF_ICEBERG/blob/main/TOI_Showcase.png?raw=true)
 > Simple top-down 2D Adventure-game to learn about fundamental programming! (Written in godot 4.0 [compatibility enabled])
 
 ## HOW TO RUN?
